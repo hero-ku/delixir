@@ -15,6 +15,10 @@ defmodule Delixir do
 
   """
 
+  @commands %{
+    "repeat" => Delixir.Repeat
+  }
+
   def start(_, _) do
     children = [
       Delixir.Consumer
