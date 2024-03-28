@@ -1,9 +1,13 @@
 defmodule Delixir.Consumer do
   use Nostrum.Consumer
 
-  def handle_event({:READY, _, _}) do
-    IO.puts("Bot ready!")
+  @commands %{
+    "repeat" => Delixir.Repeat
+  }
 
-    # register slash commands
+  def handle_event({:READY, _, _}) do
+    Enum.each(@commands, fn cmd ->
+      IO.puts(cmd)
+    end)
   end
 end
